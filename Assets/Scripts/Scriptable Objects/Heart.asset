@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heart
   m_EditorClassIdentifier: 
   objectName: heart
-  spirte: {fileID: -8843976880988234773, guid: 660775509c871cd4da91b6c2150ae2fc, type: 3}
+  sprite: {fileID: -8843976880988234773, guid: 660775509c871cd4da91b6c2150ae2fc, type: 3}
   quantity: 1
   stackable: 0
   itemType: 1
