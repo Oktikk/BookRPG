@@ -14,15 +14,7 @@ public class Player : Character
 
     Inventory inventory;
 
-    private void Start()
-    {
-        inventory = Instantiate(inventoryPrefab);
 
-        hitPoints.value = startingHitPoints;
-        healthBar = Instantiate(healthBarPrefab);
-
-        healthBar.character = this;
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("CanBePickedUp"))
@@ -69,5 +61,49 @@ public class Player : Character
         }
 
         return false;
+    }
+
+    public override IEnumerator DamageCharacter(int damage, float interval)
+    {
+        while (true)
+        {
+            hitPoints.value = hitPoints.value - damage;
+            if(hitPoints.value <= float.Epsilon)
+            {
+                KillCharacter();
+                break;
+            }
+            if(interval > float.Epsilon)
+            {
+                yield return new WaitForSeconds(interval);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+
+    public override void KillCharacter()
+    {
+        base.KillCharacter();
+
+        Destroy(healthBar.gameObject);
+        Destroy(inventory.gameObject);
+    }
+
+    public override void ResetCharacter()
+    {
+        inventory = Instantiate(inventoryPrefab);
+
+        hitPoints.value = startingHitPoints;
+        healthBar = Instantiate(healthBarPrefab);
+
+        healthBar.character = this;
+    }
+
+    private void OnEnable()
+    {
+        ResetCharacter();
     }
 }
