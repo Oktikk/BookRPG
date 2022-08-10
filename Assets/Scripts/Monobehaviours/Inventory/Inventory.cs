@@ -5,7 +5,7 @@ public class Inventory : MonoBehaviour
 {
     public GameObject slotPrefab;
 
-    public const int numSlots = 5;
+    public const int numSlots = 3;
 
     Image[] itemImages = new Image[numSlots];
 

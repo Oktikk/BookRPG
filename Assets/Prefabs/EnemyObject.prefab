@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2ede5420c089d41aa7962e08d04be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHitPoints: 2
-  startingHitPoints: 2
+  maxHitPoints: 5
+  startingHitPoints: 5
   damageStrength: 1
 --- !u!58 &7978391379313431743
 CircleCollider2D:
